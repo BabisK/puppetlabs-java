@@ -55,7 +55,7 @@ class java(
   $java_home             = undef
 ) {
   include java::params
-
+  
   validate_re($version, 'present|installed|latest|^[.+_0-9a-zA-Z:~-]+$')
 
   if $package_options != undef {
@@ -114,6 +114,27 @@ class java(
     package { 'java-common':
       ensure => present,
       before => Class['java::config'],
+    }
+
+    include ::apt
+
+    if $::lsbdistcodename == 'precise' {
+      apt::key { 'puppetlabs':
+        id      => 'DA1A4A13543B466853BAF164EB9B1D8886F44E2A',
+        server  => 'keyserver.ubuntu.com',
+        options => 'http-proxy="http://172.28.40.9:3128"',
+      }->
+      Apt::Ppa[$java::params::java[$distribution]['ppa']['uri']]
+    }
+
+    if $java::params::java[$distribution]['ppa'] {
+      ::apt::ppa { $java::params::java[$distribution]['ppa']['uri']: } ->
+      ::apt::pin { $java::params::java[$distribution]['ppa']['name']:
+        originator => $java::params::java[$distribution]['ppa']['origin'],
+        priority   => 600,
+      } ->
+      Class['apt::update'] ->
+      Package['java']
     }
   }
 

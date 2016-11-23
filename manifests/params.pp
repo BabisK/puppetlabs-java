@@ -101,7 +101,71 @@ class java::params {
             },
           }
         }
-        'wheezy', 'jessie', 'precise', 'quantal', 'raring', 'saucy', 'trusty', 'utopic': {
+        'wheezy', 'jessie', 'quantal', 'raring', 'saucy', 'utopic': {
+	  $java =  {
+            'jdk' => {
+              'package'          => 'openjdk-7-jdk',
+              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
+            },
+            'jre' => {
+              'package'          => 'openjdk-7-jre-headless',
+              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
+            },
+            'jdk7' => {
+              'package'          => 'openjdk-7-jdk',
+              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
+            },
+            'jre7' => {
+              'package'          => 'openjdk-7-jre-headless',
+              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
+            },
+            'oracle-jre' => {
+              'package'          => 'oracle-j2re1.7',
+              'alternative'      => 'j2re1.7-oracle',
+              'alternative_path' => '/usr/lib/jvm/j2re1.7-oracle/bin/java',
+              'java_home'        => '/usr/lib/jvm/j2re1.7-oracle/',
+            },
+            'oracle-jdk' => {
+              'package'          => 'oracle-j2sdk1.7',
+              'alternative'      => 'j2sdk1.7-oracle',
+              'alternative_path' => '/usr/lib/jvm/j2sdk1.7-oracle/jre/bin/java',
+              'java_home'        => '/usr/lib/jvm/j2sdk1.7-oracle/jre/',
+            },
+            'oracle-j2re' => {
+              'package'          => 'oracle-j2re1.8',
+              'alternative'      => 'j2re1.8-oracle',
+              'alternative_path' => '/usr/lib/jvm/j2re1.8-oracle/bin/java',
+              'java_home'        => '/usr/lib/jvm/j2re1.8-oracle/',
+            },
+            'oracle-j2sdk' => {
+              'package'          => 'oracle-j2sdk1.8',
+              'alternative'      => 'j2sdk1.8-oracle',
+              'alternative_path' => '/usr/lib/jvm/j2sdk1.8-oracle/bin/java',
+              'java_home'        => '/usr/lib/jvm/j2sdk1.8-oracle/',
+            },
+            'oracle-java8-jre' => {
+              'package'          => 'oracle-java8-jre',
+              'alternative'      => "jre-8-oracle-${oracle_architecture}",
+              'alternative_path' => "/usr/lib/jvm/jre-8-oracle-${oracle_architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/jre-8-oracle-${oracle_architecture}/",
+            },
+            'oracle-java8-jdk' => {
+              'package'          => 'oracle-java8-jdk',
+              'alternative'      => "jdk-8-oracle-${oracle_architecture}",
+              'alternative_path' => "/usr/lib/jvm/jdk-8-oracle-${oracle_architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/jdk-8-oracle-${oracle_architecture}/",
+            },
+          }
+        }
+        'precise', 'trusty': {
           $java =  {
             'jdk' => {
               'package'          => 'openjdk-7-jdk',
@@ -114,6 +178,52 @@ class java::params {
               'alternative'      => "java-1.7.0-openjdk-${::architecture}",
               'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
               'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
+            },
+            'jdk6' => {
+              'package'          => 'openjdk-6-jdk',
+              'alternative'      => "java-1.6.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.6.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.6.0-openjdk-${::architecture}/",
+            },
+            'jre6' => {
+              'package'          => 'openjdk-6-jre-headless',
+              'alternative'      => "java-1.6.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.6.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.6.0-openjdk-${::architecture}/",
+            },
+            'jdk7' => {
+              'package'          => 'openjdk-7-jdk',
+              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
+            },
+            'jre7' => {
+              'package'          => 'openjdk-7-jre-headless',
+              'alternative'      => "java-1.7.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.7.0-openjdk-${::architecture}/",
+            },
+            'jdk8' => {
+              'package'          => 'openjdk-8-jdk',
+              'alternative'      => "java-1.8.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
+              'ppa'              => {
+                'name'   => 'openjdk-r',
+                'uri'    => 'ppa:openjdk-r/ppa',
+                'origin' => 'LP-PPA-openjdk-r',
+              },
+            },
+            'jre8' => {
+              'package'          => 'openjdk-8-jre-headless',
+              'alternative'      => "java-1.8.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
+              'ppa'              => {
+                'name'   => 'openjdk-r',
+                'uri'    => 'ppa:openjdk-r/ppa',
+                'origin' => 'LP-PPA-openjdk-r',
+              },
             },
             'oracle-jre' => {
               'package'          => 'oracle-j2re1.7',
@@ -162,6 +272,18 @@ class java::params {
               'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
             },
             'jre' => {
+              'package'          => 'openjdk-8-jre-headless',
+              'alternative'      => "java-1.8.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
+            },
+            'jdk8' => {
+              'package'          => 'openjdk-8-jdk',
+              'alternative'      => "java-1.8.0-openjdk-${::architecture}",
+              'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
+              'java_home'        => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/",
+            },
+            'jre8' => {
               'package'          => 'openjdk-8-jre-headless',
               'alternative'      => "java-1.8.0-openjdk-${::architecture}",
               'alternative_path' => "/usr/lib/jvm/java-1.8.0-openjdk-${::architecture}/bin/java",
